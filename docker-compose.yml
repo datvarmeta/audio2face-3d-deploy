@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   audio2face-3d:
-    image: nvcr.io/<your-org>/audio2face-3d:<tag>  # ← Sửa lại cho đúng tên image thật
+    image: nvcr.io/nim/nvidia/audio2face-3d:1.2  # ← Sửa lại cho đúng tên image thật
     container_name: audio2face-3d
     runtime: nvidia
     environment:
