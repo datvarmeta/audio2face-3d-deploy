@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  audio2face-3d:
+    image: nvcr.io/<your-org>/audio2face-3d:<tag>  # ← Sửa lại cho đúng tên image thật
+    container_name: audio2face-3d
+    runtime: nvidia
+    environment:
+      - A2F_3D_MODEL_NAME=claire
+      - A2F_3D_CONFIG=/app/configs/deployment_config.yaml
+    volumes:
+      - ./configs:/app/configs
+      - ./models:/models
+      - ./output:/output
+      - ./entrypoint.sh:/app/entrypoint.sh
+    entrypoint: ["/bin/bash", "/app/entrypoint.sh"]
+    ports:
+      - "5000:5000"  # Nếu service expose cổng khác thì đổi
+    restart: unless-stopped

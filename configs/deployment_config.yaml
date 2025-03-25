@@ -1,0 +1,18 @@
+telemetry:
+  metrics_enabled: false
+  traces_enabled: false
+
+audio2emotion:
+  model_path: /models/emotion_model.trt
+  sample_rate: 16000
+
+audio2face_3d:
+  model_path: /models/face3d_model.trt
+  speaker_profile: claire   # Có thể đổi thành mark hoặc james
+  use_gpu: true
+  animation_output:
+    format: usd
+    output_path: /output
+
+logging:
+  level: INFO
